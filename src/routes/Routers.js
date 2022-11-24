@@ -1,6 +1,7 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import Home from '../components/Home/Home';
+import Product from '../components/Product/Product';
 import Main from '../layout/Main';
 export const routes = createBrowserRouter([
     {
@@ -11,6 +12,13 @@ export const routes = createBrowserRouter([
                 path: '/',
                 element:<Home></Home>
                 
+            },
+            {
+                path: '/product',
+                element: <Product></Product>,
+                loader: () => {
+                    return fetch(`http://localhost:5000/product`)
+                }
             }
         ]
     }
